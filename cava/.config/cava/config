@@ -1,0 +1,18 @@
+[general]
+
+framerate = 144
+
+[output]
+
+method = ncurses
+channels = mono
+mono_option = average
+data_format = ascii
+
+[color]
+
+gradient = 1
+gradient_count = 3
+gradient_color_3 = '#231f30'
+gradient_color_2 = '#5f244c'
+gradient_color_1 = '#bf371d'
