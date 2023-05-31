@@ -8,7 +8,7 @@
 
 or, optionally
 
-`git clone --recurse-submodules https://github.com/derekfrogget/dotfiles.git ~/.dotfiles
+`git clone --recurse-submodules https://github.com/derekfrogget/dotfiles.git ~/.dotfiles`
 
 2. Enter the repository's directory
 
