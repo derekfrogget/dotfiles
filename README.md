@@ -4,22 +4,18 @@
 
 1. Clone the repo:
 
-`git clone https://github.com/derekfrogget/dotfiles.git`
+`git clone --recurse-submodules https://github.com/derekfrogget/dotfiles.git`
+or, optionally
+`git clone --recurse-submodules https://github.com/derekfrogget/dotfiles.git ~/.dotfiles
 
-2. Clone submodules:
+2. Enter the repository's directory
 
-`git submodule update --recursive --remote`
+`cd dotfiles`
+or
+`cd ~/.dotfiles`
 
-3. (Optional) Rename repository with a `.` to mark it hidden
-
-`mv dotfiles/ .dotfiles/`
-
-4. Enter the repository's directory
-
-`cd .dotfiles`
-
-5. Create symbolic links in the home directory:
+3. Create symbolic links in the home directory:
 
 `stow -t ~/ */`
 
-6. Done!
+4. Done!
