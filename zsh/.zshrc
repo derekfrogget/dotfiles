@@ -34,7 +34,18 @@ source $ZSH/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 fpath=($ZSH/plugins/zsh-completions/src $fpath)
 source $ZSH/themes/powerlevel10k/powerlevel10k.zsh-theme
 
+# Aliases
+alias editpolybar="hx $HOME/.config/polybar/config.ini"
+alias editi3="hx $HOME/.config/i3/config"
+alias editalacritty="hx $HOME/.config/alacritty/alacritty.yml"
+
+alias du="du / -h 2>/dev/null | sort -hr | less"
+alias ls="lsd -la"
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+  startx
+fi
 # pfetch
