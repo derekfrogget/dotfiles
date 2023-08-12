@@ -12,6 +12,7 @@ fi
 # Exports & ZSH settings
 export PATH
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.choosenim/toolchains/nim-1.6.14/bin:$HOME/.nimble/bin:$PATH"
 export ZSH=$HOME/.zsh
 export HISTFILE=$ZSH/.zsh_history
 export HISTSIZE=10000
@@ -38,6 +39,7 @@ source $ZSH/themes/powerlevel10k/powerlevel10k.zsh-theme
 alias editpolybar="hx $HOME/.config/polybar/config.ini"
 alias editi3="hx $HOME/.config/i3/config"
 alias editalacritty="hx $HOME/.config/alacritty/alacritty.yml"
+alias yay="paru"
 
 alias du="du / -h 2>/dev/null | sort -hr | less"
 alias ls="lsd -la"

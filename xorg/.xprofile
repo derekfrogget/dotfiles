@@ -6,4 +6,3 @@ polkit-gnome &
 nitrogen --restore &
 dunst &
 picom -b &
-exec i3
