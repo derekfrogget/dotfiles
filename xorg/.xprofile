@@ -1,0 +1,8 @@
+#!/bin/sh
+
+~/.screenlayout/dual.sh &
+playerctld daemon &
+polkit-gnome &
+nitrogen --restore &
+dunst &
+picom -b &
