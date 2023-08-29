@@ -1,4 +1,12 @@
-theme = "monokai_pro"
+theme = "onedark"
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+
+[editor.statusline]
+left = ["mode", "spinner", "file-name"]
+center = ["version-control"]
 
 [editor.cursor-shape]
 insert = "bar"
