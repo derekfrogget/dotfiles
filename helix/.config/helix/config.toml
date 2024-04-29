@@ -3,10 +3,15 @@ theme = "onedark"
 [editor]
 bufferline = "multiple"
 color-modes = true
+popup-border = "all"
 
 [editor.statusline]
-left = ["mode", "spinner", "file-name"]
-center = ["version-control"]
+center = [ "version-control" ]
+right = [ "diagnostics", "selections", "register", "position", "file-encoding", "total-line-numbers" ]
 
 [editor.cursor-shape]
 insert = "bar"
+select = "underline"
+
+[editor.whitespace]
+render.tab = "all"

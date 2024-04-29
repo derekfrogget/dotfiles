@@ -1,23 +1,34 @@
-if status is-interactive
-    # Commands to run in interactive sessions can go here
-end
-
-
 bind \e\[1\;5A beginning-of-line
 bind \e\[1\;5B end-of-line
 bind \b backward-kill-word
 bind \e\[3\;5~ kill-word
 
-abbr -a editfish hx ~/.config/fish/config.fish
-abbr -a editi3 hx ~/.config/i3/config
-abbr -a editalacritty hx ~/.config/alacritty/alacritty.yml
-abbr -a edithelix hx ~/.config/helix/config.toml
+abbr -a edfish hx ~/.config/fish/config.fish
+abbr -a edhelix hx ~/.config/helix
+abbr -a edpolybar hx ~/.config/polybar/config.ini
+abbr -a edbspwm hx ~/.config/bspwm/bspwmrc
 
-abbr -a yay paru
-abbr -a du 'du / -h 2>/dev/null | sort -hr | less'
+abbr -a xis sudo xbps-install -S
+abbr -a xrr sudo xbps-remove -R
+abbr -a xqr xbps-query -Rs
+
+function lnsv
+    sudo ln -s /etc/sv/$argv /var/service/
+end
+complete -c lnsv -f -a "(comm -23 (ls /etc/sv/ | psub) (ls /var/service/ | psub))"
+
+function ulsv
+    sudo unlink /var/service/$argv
+end
+complete -c ulsv -f -a "(ls /var/service)"
+
 abbr -a ls lsd
-abbr -a sp sudo pacman
-abbr -a sps sudo pacman -S
+abbr -a la lsd -la
 abbr -a cd z
+abbr -a cat bat
+abbr -a clipboard-pipe xclip -selection clipboard
 
 zoxide init fish | source
+
+set -gx PIP_HOME "/home/$USER/.local/bin"
+set -gx PATH "$PIP_HOME" $PATH

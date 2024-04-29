@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
+#! /bin/sh
 
-polybar-msg cmd quit
-
-polybar 2>&1 | tee -a /tmp/polybar.log & disown
+killall -q polybar
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+polybar &
