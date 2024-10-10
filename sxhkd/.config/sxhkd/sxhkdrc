@@ -15,15 +15,32 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # Shutdown
-super + Shift + Delete
-	seeyah
+super + shift + Delete
+	rofi -show power-menu -modi power-menu:rofi-power-menu
+	#seeyah
 
 # take a screenshot
 Print; @Print
 	flameshot gui
 
-# media keys
+# swap keyboard layout
+super + apostrophe 
+	/home/derek/.local/bin/xkblayout-state set +1; \
+	dunstify "Switched Keyboard Layout!" $(/home/derek/.local/bin/xkblayout-state print %e)
 
+# media keys
+XF86AudioPrev; @XF86AudioPrev
+	playerctl previous
+
+XF86AudioPlay; @XF86AudioPlay
+	playerctl play-pause
+
+XF86AudioNext; @XF86AudioNext
+	playerctl next
+
+# clipboard hist
+super + v
+	rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 #
 # bspwm hotkeys
@@ -93,7 +110,7 @@ super + {o,i}
 
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+	bspc {desktop -f,node -d} '^{4-7,1-3,8,9,10}'
 
 #
 # preselect

@@ -1,0 +1,15 @@
+(assoc
+	#:name 'browser
+	#:pattern "^https?://.*"
+	#:program "/home/derek/Downloads/Thorium_Browser_124.0.6367.218_AVX2.AppImage %f"
+)
+(assoc
+	#:pattern "^text/.*"
+	#:program "hx %f"
+	#:term "wezterm -e")
+(assoc
+	#:pattern "inode/directory"
+	#:program "thunar %f")
+(assoc
+	#:pattern "^unityhub://*"
+	#:program flatpak run com.unity.UnityHub %f)

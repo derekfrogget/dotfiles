@@ -2,3 +2,20 @@
 name = "nim"
 auto-format = true
 indent = { tab-width = 2, unit = " " }
+
+[[language]]
+name = "zig"
+auto-format = false
+indent = { tab-width = 2, unit = " " }
+
+[language-server.superhtml-lsp]
+command = "superhtml"
+args = ["lsp"]
+
+[[language]]
+name = "html"
+scope = "source.html"
+roots = []
+file-types = ["html"]
+language-servers = [ "superhtml-lsp" ]
+auto-format = true
