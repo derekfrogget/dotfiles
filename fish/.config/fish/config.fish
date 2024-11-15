@@ -9,8 +9,8 @@ abbr -a edpolybar hx ~/.config/polybar/config.ini
 abbr -a edbspwm hx ~/.config/bspwm/bspwmrc
 abbr -a edsxhkd hx ~/.config/sxhkd/sxhkdrc
 abbr -a edhalloy hx ~/.config/halloy
-abbr -a edjaro hx ~/.config/associations
 abbr -a edwezterm hx ~/.config/wezterm
+abbr -a edghostty hx ~/.config/ghostty/config
 
 abbr -a sxi sudo xbps-install
 abbr -a xis sudo xbps-install -S
@@ -28,12 +28,15 @@ function ulsv
 end
 complete -c ulsv -f -a "(ls /var/service)"
 
-abbr -a updisc sudo hx /usr/lib/discord/resources/build_info.json
 abbr -a ls lsd
 abbr -a la lsd -la
 abbr -a cd z
 abbr -a cat bat
-abbr -a clipboard-pipe xclip -selection clipboard
+abbr -a find fd
+abbr -a fd "fd --color=always | bat --color=always"
+
+abbr -a updisc sudo hx /usr/lib/discord/resources/build_info.json
+abbr -a xclip xclip -selection clipboard
 abbr -a arch distrobox enter arch-toolbox
 
 zoxide init fish | source
@@ -43,5 +46,7 @@ set -gx PIP_HOME "/home/$USER/.local/bin"
 set -gx PATH "$PIP_HOME" $PATH
 set -gx SHELL /usr/bin/fish
 set -gx EDITOR /usr/bin/hx
+
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 pyenv init - | source

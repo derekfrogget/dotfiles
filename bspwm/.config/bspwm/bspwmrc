@@ -21,6 +21,7 @@ pipewire &
 nitrogen --restore &
 dunst &
 /usr/libexec/polkit-mate-authentication-agent-1 &
+/usr/lib/pam_kwallet_init &
 greenclip daemon &
 # picom -b &
 ~/.config/polybar/launch.sh &
