@@ -1,0 +1,14 @@
+#font-family=
+font-size = 12
+theme = OneHalfDark
+cursor-invert-fg-bg = true
+background-opacity = 0.8
+command = fish
+window-padding-x = 5
+window-decoration = false
+quit-after-last-window-closed-delay = 30s
+shell-integration-features = no-cursor,sudo,title
+#custom-shader = 
+gtk-single-instance = true
+#bold-is-bright = 
+
