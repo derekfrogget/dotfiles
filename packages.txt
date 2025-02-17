@@ -23,7 +23,7 @@ playerctl
 podman
 protontricks
 qbittorrent
-rofi
+fuzzel
 steam
 stow
 strace
