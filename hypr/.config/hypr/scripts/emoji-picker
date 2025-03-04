@@ -7,10 +7,23 @@ if [ -n "$emoji" ]; then
     # Copy to clipboard
     echo -n "$emoji" | wl-copy
     
-    # Try to type it directly (works in native Wayland apps)
-    sleep 0.5
-    wtype "test $emoji test"
+    # Get the active window class
+    active_window_class=$(hyprctl activewindow -j | jq -r '.class')
     
-    # Notify user that emoji is copied to clipboard
-    notify-send "Emoji Copied" "$emoji is in clipboard" -t 2000
+    # Determine if we should use wtype or paste from clipboard
+    if [[ "$active_window_class" == *"chrome"* ]] || 
+       [[ "$active_window_class" == *"electron"* ]] || 
+       [[ "$active_window_class" == *"discord"* ]] || 
+       [[ "$active_window_class" == *"Code"* ]]; then
+        # For XWayland apps, use clipboard paste
+        sleep 0.5
+        wtype -k ctrl v
+    else
+        # For native Wayland apps, use direct typing
+        sleep 0.5
+        wtype "$emoji"
+    fi
+    
+    # Notify user
+    notify-send "Emoji" "$emoji inserted" -t 2000
 fi
