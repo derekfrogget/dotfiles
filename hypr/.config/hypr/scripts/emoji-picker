@@ -6,6 +6,6 @@ emoji=$(cat ~/.config/hypr/scripts/emoji-list.txt | fuzzel --dmenu -p "Emoji: " 
 # If an emoji was selected, copy it to clipboard
 if [ -n "$emoji" ]; then
     echo -n "$emoji" | wl-copy
-    # Paste the emoji
-    wl-paste | wtype -
+    # Paste the emoji directly
+    wtype "$emoji"
 fi
