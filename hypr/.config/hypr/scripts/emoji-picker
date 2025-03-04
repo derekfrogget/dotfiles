@@ -9,7 +9,7 @@ if [ -n "$emoji" ]; then
     
     # Try to type it directly (works in native Wayland apps)
     sleep 0.5
-    wtype "$emoji"
+    wtype "test $emoji test"
     
     # Notify user that emoji is copied to clipboard
     notify-send "Emoji Copied" "$emoji is in clipboard" -t 2000
