@@ -1,11 +1,6 @@
 #!/bin/bash
 
-# Get emoji from fuzzel and copy to clipboard
 emoji=$(cat ~/.config/hypr/scripts/emoji-list.txt | fuzzel --dmenu -p "Emoji: " | awk '{print $1}')
-
-# If an emoji was selected, copy it to clipboard
 if [ -n "$emoji" ]; then
-    echo -n "$emoji" | wl-copy
-    # Paste the emoji directly
-    wtype "$emoji"
+    echo -n "$emoji Why won't this work!?" | wtype -
 fi
