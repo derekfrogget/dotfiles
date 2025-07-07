@@ -4,21 +4,6 @@
 emoji=$(cat ~/.config/hypr/scripts/emoji-list.txt | fuzzel --dmenu -p "Emoji: " | awk '{print $1}')
 
 if [ -n "$emoji" ]; then
-    # Copy to clipboard
-    echo -n "$emoji" | wl-copy
-    
-    # Get the active window class
-    active_window_class=$(hyprctl activewindow -j | jq -r '.class')
-    
-    # Show notification with instructions
-    notify-send "Emoji Copied" "$emoji is in clipboard. Press Ctrl+V to paste." -t 3000
-    
-    # For native Wayland apps that work well with wtype, try direct typing
-    if [[ "$active_window_class" != *"discord"* ]] && 
-       [[ "$active_window_class" != *"electron"* ]] && 
-       [[ "$active_window_class" != *"chrome"* ]] && 
-       [[ "$active_window_class" != *"Code"* ]]; then
-        sleep 0.5
-        wtype "$emoji"
-    fi
-}
+    sleep 0.1
+    wtype "test $emoji test"
+fi

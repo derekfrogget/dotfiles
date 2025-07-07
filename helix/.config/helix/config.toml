@@ -4,6 +4,11 @@ theme = "onedark"
 bufferline = "multiple"
 color-modes = true
 popup-border = "all"
+cursorline = true
+lsp.display-inlay-hints = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
 
 [editor.statusline]
 center = [ "version-control" ]
@@ -16,3 +21,7 @@ select = "underline"
 [editor.indent-guides]
 render = true
 skip-levels = 1
+
+[keys.normal]
+"ret" = "goto_word"
+

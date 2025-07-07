@@ -1,7 +1,7 @@
 # Keychain
-if status --is-interactive
-    keychain --eval --quiet --agents gnome-keyring -Q (ls $HOME/.ssh/*.pub | xargs -n 1 basename -s .pub) | source
-end
+# if status --is-interactive
+# keychain --eval --quiet --agents gnome-keyring -Q (ls $HOME/.ssh/*.pub | xargs -n 1 basename -s .pub) | source
+# end
 
 # begin
 #     set -l HOSTNAME (hostname)
@@ -11,10 +11,15 @@ end
 # end
 
 # Keybindings
-bind \e\[1\;5A beginning-of-line # CTRL + UP
-bind \e\[1\;5B end-of-line # CTRL + DOWN
-bind \b backward-kill-word # CTRL + BACKSPACE
-bind \e\[3\;5~ kill-word # CTRL + DEL
+## Navigation
+bind ctrl-up beginning-of-line
+bind ctrl-down end-of-line
+bind ctrl-backspace backward-kill-word
+bind ctrl-delete kill-word
+
+## Shortcuts
+bind alt-h 'hx .'
+bind alt-f fg
 
 # Path
 set PATH "$PATH:/home/derek/go/bin/"
@@ -24,9 +29,15 @@ set -gx SHELL /usr/bin/fish
 set -gx EDITOR /usr/bin/hx
 set -gx DOTFILES $HOME/dotfiles
 set -gx DISTRO arch
+set -gx WM hypr
+
+set -gx fish_browser google-chrome-stable
 
 # Distro config
 source (resolvedot fish)/$DISTRO.fish
+
+# WM-specific config
+source (resolvedot fish)/$WM.fish
 
 # Abbreviations
 abbr -a ls lsd
@@ -36,7 +47,7 @@ abbr -a cd z
 abbr -a cat bat
 abbr -a find fd
 
-abbr -a updisc sudo hx /usr/lib/discord/resources/build_info.json
+abbr -a updisc sudo hx /opt/discord/resources/build_info.json
 abbr -a xclip xclip -selection clipboard
 abbr -a shutdown shutdown -P now
 
@@ -48,13 +59,11 @@ abbr -a edhalloy $EDITOR (resolvedot halloy)
 abbr -a edwezterm $EDITOR (resolvedot wezterm)
 abbr -a edghostty $EDITOR (resolvedot ghostty)/config
 
-### Hyprland
-abbr -a edhypr $EDITOR (resolvedot hypr)/
-
-### BSPWM
 abbr -a edpolybar $EDITOR (resolvedot polybar)/config.ini
-abbr -a edbspwm $EDITOR (resolvedot bspwm)/bspwmrc
-abbr -a edsxhkd $EDITOR (resolvedot sxhkd)/sxhkdrc
 
 # Misc
 zoxide init fish | source
+
+set -x PYENV_ROOT $HOME/.pyenv
+set -x PATH $PYENV_ROOT/bin $PATH
+status --is-interactive; and pyenv init - | source
