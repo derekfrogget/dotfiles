@@ -1,4 +1,4 @@
-MangoHud
+mangohud
 bat
 breeze-obsidian-cursor-theme
 btop
@@ -16,8 +16,8 @@ helix
 jujutsu
 keychain
 lsd
-ntfs
-obs
+ntfs-3g
+obs-studio
 openvpn
 playerctl
 podman
