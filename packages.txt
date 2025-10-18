@@ -34,3 +34,6 @@ udiskie
 virt-manager
 yt-dlp
 zoxide
+waypaper
+mako
+fcitx5
