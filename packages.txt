@@ -27,7 +27,6 @@ fuzzel
 steam
 stow
 strace
-sublime-text4
 tldr
 udiskie
 virt-manager
