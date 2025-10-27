@@ -1,0 +1,27 @@
+theme = "onedark"
+
+[editor]
+bufferline = "multiple"
+color-modes = true
+popup-border = "all"
+cursorline = true
+lsp.display-inlay-hints = true
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+
+[editor.statusline]
+center = [ "version-control" ]
+right = [ "diagnostics", "selections", "register", "position", "file-encoding", "total-line-numbers" ]
+
+[editor.cursor-shape]
+insert = "bar"
+select = "underline"
+
+[editor.indent-guides]
+render = true
+skip-levels = 1
+
+[keys.normal]
+"ret" = "goto_word"
+

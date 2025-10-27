@@ -1,0 +1,5 @@
+[user]
+name = "derekfrogget"
+email = "fro22003@byui.edu"
+[ui]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
