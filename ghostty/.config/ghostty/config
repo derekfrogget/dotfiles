@@ -8,8 +8,8 @@ scrollback-limit = 20000000
 window-padding-x = 5
 window-decoration = false
 quit-after-last-window-closed-delay = 1h
-shell-integration-features = no-cursor,sudo,title
-#custom-shader = 
+shell-integration-features = no-cursor,sudo,title,ssh-env
+custom-shader = ./cursor-smear.glsl
 gtk-single-instance = true
 #bold-is-bright = 
 

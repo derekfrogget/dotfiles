@@ -61,6 +61,8 @@ abbr -a edghostty $EDITOR (resolvedot ghostty)/config
 
 abbr -a edpolybar $EDITOR (resolvedot polybar)/config.ini
 
+abbr -a edssh $EDITOR $HOME/.ssh/config
+
 # Misc
 zoxide init fish | source
 
