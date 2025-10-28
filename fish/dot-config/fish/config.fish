@@ -25,6 +25,9 @@ if command -q lsd
     abbr -a ls lsd
     abbr -a la lsd -la
     abbr -a lt lsd -lta
+else
+    abbr -a la ls -la
+    abbr -a lt ls -lta
 end
 
 if command -q zoxide
