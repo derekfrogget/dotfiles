@@ -1,37 +1,18 @@
-# Keychain
-# if status --is-interactive
-# keychain --eval --quiet --agents gnome-keyring -Q (ls $HOME/.ssh/*.pub | xargs -n 1 basename -s .pub) | source
-# end
-
-# begin
-#     set -l HOSTNAME (hostname)
-#     if test -f $HOME/.keychain/$HOSTNAME-fish
-#         source $HOME/.keychain/$HOSTNAME-fish
-#     end
-# end
-
-# Keybindings
-## Navigation
-bind ctrl-up beginning-of-line
-bind ctrl-down end-of-line
-bind ctrl-backspace backward-kill-word
-bind ctrl-delete kill-word
-
-## Shortcuts
-bind alt-h 'hx .'
-bind alt-f fg
-
 # Path
-set PATH "$PATH:/home/derek/go/bin/"
+source (resolvedot fish)/path.fish
 
 # Preferences
-set -gx SHELL /usr/bin/fish
-set -gx EDITOR /usr/bin/hx
+set -gx SHELL fish
+set -Ux EDITOR hx
+set -Ux TERMINAL ghostty
 set -gx DOTFILES $HOME/dotfiles
-set -gx DISTRO arch
-set -gx WM hypr
+set -Ux DISTRO arch
+set -Ux WM hypr
 
-set -gx fish_browser google-chrome-stable
+set -g fish_browser google-chrome-stable
+
+# Keybindings
+## Moved to functions/fish_user_key_bindings.fish
 
 # Distro config
 source (resolvedot fish)/$DISTRO.fish
@@ -40,20 +21,30 @@ source (resolvedot fish)/$DISTRO.fish
 source (resolvedot fish)/$WM.fish
 
 # Abbreviations
-abbr -a ls lsd
-abbr -a la lsd -la
-abbr -a lt lsd -lta
-abbr -a cd z
-abbr -a cat bat
-abbr -a find fd
+if command -q lsd
+    abbr -a ls lsd
+    abbr -a la lsd -la
+    abbr -a lt lsd -lta
+end
+
+if command -q zoxide
+    abbr -a cd z
+end
+
+if command -q bat
+    abbr -a cat bat
+end
+
+if command -q fd
+    abbr -a find fd
+end
 
 abbr -a updisc sudo hx /opt/discord/resources/build_info.json
 abbr -a xclip xclip -selection clipboard
 abbr -a shutdown shutdown -P now
 
-## Config file abbreviations
-### Independent
-abbr -a edfish "$EDITOR $(resolvedot fish) && source $(resolvedot fish)/config.fish"
+## Independent config file abbreviations
+abbr -a edfish "$EDITOR $(resolvedot fish); and source $(resolvedot fish)/config.fish"
 abbr -a edhelix $EDITOR (resolvedot helix)
 abbr -a edhalloy $EDITOR (resolvedot halloy)
 abbr -a edwezterm $EDITOR (resolvedot wezterm)
@@ -65,7 +56,5 @@ abbr -a edssh $EDITOR $HOME/.ssh/config
 
 # Misc
 zoxide init fish | source
-
-set -x PYENV_ROOT $HOME/.pyenv
-set -x PATH $PYENV_ROOT/bin $PATH
-status --is-interactive; and pyenv init - | source
+## fzf plugin
+# set fzf_diff_highlighter difft
